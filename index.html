@@ -41,6 +41,10 @@
 .compare-table th.byd,.compare-table td.byd{background:#eef8ff}
 .compare-table td.win{font-weight:900;color:#0869b7}
 .compare-table .price{font-weight:900}
+.service-nav{background:#087a62!important;border-color:#29b99a!important;color:#fff!important}.service-nav.active{background:#fff!important;color:#075f4d!important}
+.service-hero{background:linear-gradient(135deg,#073b4c,#087a62)}.service-hero .kicker,.service-hero .desc{color:#d8fff5}.service-hero h1{color:#fff}
+.service-call{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#eafaf6;border:1px solid #b7e8db;border-radius:14px;padding:16px}.service-call strong{display:block;font-size:22px;color:#075f4d}.service-call span{color:var(--muted);font-size:13px}.service-call a{text-decoration:none;background:#087a62;color:#fff;padding:11px 16px;border-radius:10px;font-weight:900;white-space:nowrap}
+.service-highlight td:nth-child(2),.service-highlight td:nth-child(3){font-weight:800;color:#075f4d}.service-note{border-left:4px solid #e6a400;background:#fff8df}.service-links{display:flex;flex-wrap:wrap;gap:8px}
 .source-list{font-size:11px;color:#697984;line-height:1.6}
 .comp-badge{display:inline-block;padding:5px 8px;border-radius:999px;background:#e8f3ff;color:#07599f;font-size:10px;font-weight:800}
 @media(max-width:760px){.compare-table{min-width:760px}}
@@ -144,7 +148,7 @@ competitors["SEALION 7"].cars.splice(1,0,{name:"BYD SEALION 7 Dynamic AWD",brand
 competitors["SEALION 7"].summary=["SEALION 7 RWD는 4,490만원부터, Dynamic AWD는 5,390만원으로 동일한 82.56kWh 배터리에 구동·성능 선택지를 제공","Dynamic AWD는 390kW·690Nm와 0→100km/h 4.5초로 Model Y Long Range AWD와 직접 비교 가능한 퍼포먼스 트림","IONIQ 5는 800V 충전과 긴 주행거리가 강점이며, SEALION 7은 FSD·통풍·2열 열선/리클라이닝·Nappa·HUD·Dynaudio 등 포함 사양을 함께 비교하는 것이 핵심"];
 
 // 2026-09-04: 전 모델 가격을 공차중량 바로 아래에 표시
-document.querySelector('.sub').textContent='공식 홈페이지 기반 · 2026.09.04 업데이트';
+document.querySelector('.sub').textContent='공식 홈페이지 기반 · 2026.09.23 업데이트';
 function setModelPrice(name,prices){
   const m=models[name];
   m.specs=m.specs.filter(row=>row[0]!=="가격");
@@ -203,6 +207,36 @@ function comparisonSection(name){
  </div><p class="note">※ 가격은 세제혜택·보조금·옵션 적용 여부에 따라 달라질 수 있습니다. 제조사마다 주행거리/성능 표시 기준이 다를 수 있어 동일 시험기준 수치만 직접 비교하는 것이 원칙입니다.</p></section>
  <section class="card full sales"><h2>비교 핵심 요약</h2><ul>${c.summary.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>`;
 }
+
+function renderService(){
+ current='SERVICE';
+ [...nav.children].forEach(b=>b.classList.toggle('active',b.dataset.name==='SERVICE'));
+ app.innerHTML=`<section class="hero service-hero"><div><div class="kicker">BYD AFTER SALES</div><h1>서비스 · 보증</h1><div class="desc">차량 구매 후 보증, 무상 정기점검, 긴급출동과 공식 서비스센터 이용 기준을 상담용으로 정리했습니다.</div><div style="margin-top:14px"><span class="badge">공식 홈페이지 기준</span><span class="badge">EV · DM-i 구분</span></div></div><div class="quick"><div class="q"><b>6년 / 15만km</b><span>기본보증</span></div><div class="q"><b>8년 / 16만km</b><span>구동 배터리</span></div><div class="q"><b>4회</b><span>무상점검</span></div><div class="q"><b>24시간</b><span>긴급출동</span></div></div></section>
+ <div class="grid">
+ <section class="card full"><div class="service-call"><div><strong>BYD 고객 지원 센터 080-808-0008</strong><span>긴급출동·견인 접수: 365일 24시간</span></div><a href="tel:0808080008">전화 연결</a></div></section>
+ <section class="card full" data-text="보증 ev dm-i 고전압 배터리 구동장치 기본보증"><h2>핵심 보증 비교</h2><div class="table-wrap"><table class="service-highlight"><thead><tr><th>보증 항목</th><th>EV</th><th>SEALION 6 DM-i</th></tr></thead><tbody>
+ <tr><td><b>구동 배터리(고전압 배터리)</b></td><td>8년 또는 160,000km<br>SOH 70% 이상</td><td>8년 또는 160,000km<br>SOH 70% 이상</td></tr>
+ <tr><td><b>구동 장치</b></td><td>8년 또는 150,000km</td><td>8년 또는 160,000km</td></tr>
+ <tr><td><b>차량 기본보증</b></td><td>6년 또는 150,000km</td><td>6년 또는 150,000km<br>엔진 포함</td></tr>
+ </tbody></table></div><p class="note">※ 보증기간은 차량 인도일부터 시작하며, 기간과 주행거리 중 먼저 도달한 조건을 기준으로 만료됩니다.</p></section>
+ <section class="card full" data-text="부품별 보증 조명 tpms 서스펜션 멀티미디어 충전포트 소모품"><h2>부품별 보증기간</h2><div class="table-wrap"><table><thead><tr><th>기간</th><th>대표 보증 항목</th></tr></thead><tbody>
+ <tr><td><b>4년 또는 100,000km</b></td><td>차량 전체 조명, 타이어 공기압 모니터링 모듈, 볼 조인트, EV 서스펜션 / DM-i 마운트(서포트)</td></tr>
+ <tr><td><b>3년 또는 60,000km</b></td><td>멀티미디어 시스템, 쇼크 업소버, 더스트 커버, 부싱·가스켓, 휠 베어링, PM2.5 측정 장치, AC/DC 충전 포트, USB 충전 포트 등</td></tr>
+ <tr><td><b>6개월 또는 10,000km</b></td><td>에어컨 필터, 차량 키 배터리, 브레이크 패드, 타이어, 와이퍼 블레이드, 전구, 퓨즈, 일반 릴레이 등 소모성 부품</td></tr>
+ </tbody></table></div></section>
+ <section class="card full" data-text="무상 정기 점검 ev 26년식 27년식 dm-i 엔진오일"><h2>무상 정기점검 4회</h2><div class="table-wrap"><table><thead><tr><th>구분</th><th>1회</th><th>2회</th><th>3회</th><th>4회</th></tr></thead><tbody>
+ <tr><td><b>EV ~26년식</b></td><td>3개월/5,000km</td><td>1년/20,000km</td><td>2년/40,000km</td><td>3년/60,000km</td></tr>
+ <tr><td><b>EV 27년식~</b></td><td>1년/20,000km</td><td>2년/40,000km</td><td>3년/60,000km</td><td>4년/80,000km</td></tr>
+ <tr><td><b>DM-i</b></td><td>6개월/3,500km HEV<br>엔진오일 교체 포함</td><td>18개월/30,000km</td><td>30개월/50,000km</td><td>42개월/70,000km</td></tr>
+ </tbody></table></div><p class="note">※ 기간과 주행거리 중 먼저 도달하는 시점에 점검하며, 유효기간 내 사용하지 않은 쿠폰은 현금이나 현물로 대체되지 않습니다.</p></section>
+ <section class="card half" data-text="긴급출동 365일 24시간 방전 타이어 공기압 구난"><h2>긴급출동 서비스</h2><ul><li>365일 24시간 접수</li><li>차량 고장 출동 및 견인: 기본보증 기간 내</li><li>고전압 배터리 방전 시 충전소 견인: 기본보증 기간 내 연 1회</li><li>타이어 공기압 보충 및 구난 작업: 기본보증 기간 내</li><li>고장·방전·사고 견인: 최대 50km 무상</li></ul></section>
+ <section class="card half" data-text="무상견인 사고 고장 공식 서비스센터 50km"><h2>무상 견인 핵심 조건</h2><ul><li>운행 불가능한 고장 차량은 기본보증 기간 내 지원</li><li>사고 차량은 공식 딜러 서비스센터에서 수리할 경우 무상</li><li>가장 가까운 BYD 공식 서비스센터로 최대 50km 지원</li><li>공식센터 미수리 출고 또는 50km 초과분은 비용 발생 가능</li><li>접수 번호: 080-808-0008</li></ul></section>
+ <section class="card half" data-text="대구 포항 서비스센터 주소 전화"><h2>대구·경북 공식 서비스센터</h2><ul><li><b>BYD Auto 대구 서비스</b><br>대구광역시 동구 안심뉴타운4로 38<br>053-763-8001 · 평일 09:00~18:00</li><li><b>BYD Auto 포항 서비스</b><br>경북 포항시 북구 새천년대로 592<br>054-283-8885 · 평일 09:00~18:00</li></ul></section>
+ <section class="card half service-note" data-text="보증 유의사항 소유주 변경 보증서"><h2>상담 시 꼭 안내할 내용</h2><ul><li>기간과 주행거리 중 먼저 도래한 시점에 보증이 종료됩니다.</li><li>차량 소유주가 변경되어도 잔여 보증과 미사용 점검 쿠폰은 차량에 귀속됩니다.</li><li>오일·소모품·충전장비·사은품·냉매 등은 기본보증에서 제외될 수 있습니다.</li><li>최종 적용 여부는 차량 보증서와 공식 서비스센터 판정을 따릅니다.</li><li>서비스 내용은 향후 변경될 수 있으므로 계약 시점에 재확인합니다.</li></ul></section>
+ <section class="card full"><h2>공식 서비스 바로가기</h2><div class="service-links"><a class="btn" href="https://www.bydauto.kr/service/warranty" target="_blank" rel="noopener">보증 케어</a><a class="btn" href="https://www.bydauto.kr/service/free-inspection" target="_blank" rel="noopener">무상 정기점검</a><a class="btn" href="https://www.bydauto.kr/service/emergency-service" target="_blank" rel="noopener">긴급출동</a><a class="btn" href="https://www.bydauto.kr/service/traction-service" target="_blank" rel="noopener">무상 견인</a><a class="btn ghost" href="https://www.bydauto.kr/service/find-service-center" target="_blank" rel="noopener">전국 서비스센터 찾기</a><a class="btn ghost" href="https://www.bydauto.kr/service/recall-information" target="_blank" rel="noopener">리콜 조회</a><button class="btn ghost" onclick="window.print()">PDF로 인쇄/저장</button></div><p class="note">BYD Korea 공식 홈페이지 내용을 2026년 9월 23일 기준으로 상담용 재정리했습니다. 실제 보증 적용은 차량 보증서와 공식 서비스센터 확인을 우선합니다.</p></section>
+ </div>`;
+ filter(search.value);
+}
 function renderView(name,view){
  render(name);
  setTimeout(()=>{
@@ -216,6 +250,7 @@ function renderView(name,view){
 
 function render(name){current=name;const m=models[name];[...nav.children].forEach(b=>b.classList.toggle('active',b.dataset.name===name));app.innerHTML=`<section class="hero"><div><div class="kicker">${esc(m.tag)}</div><h1>${esc(name)}</h1><div class="desc">${esc(m.summary)}</div><div style="margin-top:14px">${m.trims.map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div></div><div class="quick"><div class="q"><b>${m.specs.find(x=>x[0]==='배터리')?.[1]||''}</b><span>BATTERY</span></div><div class="q"><b>${m.specs.find(x=>x[0].includes('모터 / 구동'))?.[1]||''}</b><span>DRIVE</span></div><div class="q"><b>${m.specs.find(x=>x[0].includes('주행거리'))?.[1]||''}</b><span>RANGE</span></div><div class="q"><b>${m.trims.length} TRIM</b><span>LINE-UP</span></div></div></section><div class="grid">${specs(m)}${upgradeSection(name)}${colors('외장 색상',m.colors)}${colors('내장 색상',m.interior_colors)}${list('파워트레인 · 기술',m.power,'half')}${list('외장',m.exterior,'half')}${list('내장',m.interior,'third')}${list('시트',m.seat,'third')}${list('인포테인먼트',m.infotainment,'third')}${list('안전 · ADAS',m.safety,'half')}${list('편의사양',m.convenience,'half')}<section class="card full sales" data-text="${esc(('핵심 요약 '+m.sales.join(' ')).toLowerCase())}"><h2>핵심 요약</h2><ul>${m.sales.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section><section class="card full"><div class="linkbar"><a class="btn" href="${m.url}" target="_blank" rel="noopener">BYD 공식 모델 페이지</a><button class="btn ghost" onclick="window.print()">PDF로 인쇄/저장</button><button class="btn ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})">맨 위로</button></div><p class="note">색상명과 트림별 세부 사양은 공식 카탈로그/홈페이지 표기를 기준으로 정리했습니다. 색상은 화면에서 실제 도장과 다르게 보일 수 있습니다.</p></section></div>`;filter(search.value)}
 Object.keys(models).forEach(n=>{const b=document.createElement('button');b.textContent=n;b.dataset.name=n;b.onclick=()=>renderView(n,'spec');nav.appendChild(b)})
+{const b=document.createElement('button');b.textContent='서비스 · 보증';b.dataset.name='SERVICE';b.className='service-nav';b.onclick=renderService;nav.appendChild(b)}
 function filter(q){q=(q||'').trim().toLowerCase();document.querySelectorAll('[data-text]').forEach(el=>el.classList.toggle('hidden',q&&!el.dataset.text.includes(q)))}
 search.addEventListener('input',e=>filter(e.target.value));renderView(current,'spec');
 </script></body></html>
