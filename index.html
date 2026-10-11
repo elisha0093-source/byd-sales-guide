@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    
 <meta name="theme-color" content="#0b1b2b"><title>BYD Sales Model Guide</title>
 <style>
 :root{--bg:#f4f7fa;--card:#fff;--ink:#14202b;--muted:#687785;--line:#dfe6ec;--blue:#0b68c4;--navy:#0b1b2b}
@@ -167,7 +168,26 @@ setModelPrice("DOLPHIN",["24,500,000원","29,200,000원"]);
 setModelPrice("ATTO 3 Plus",["34,900,000원"]);
 setModelPrice("SEAL",["39,900,000원","41,900,000원","46,900,000원"]);
 setModelPrice("SEALION 7",["44,900,000원","46,900,000원","53,900,000원"]);
-setModelPrice("SEALION 6 DM-i",["37,500,000원"]);
+// 2026-10-11: BYD Korea 공식 출시 SEALION 6 DM-i AWD 반영
+models["SEALION 6 DM-i"].tag="PHEV SUV · DM-i · FWD / AWD";
+models["SEALION 6 DM-i"].summary="전기모터 중심의 DM-i 시스템에 FWD 효율형과 26.6kWh 배터리·듀얼모터를 적용한 AWD 퍼포먼스형을 함께 제공하는 플러그인 하이브리드 SUV.";
+models["SEALION 6 DM-i"].trims=["SEALION 6 DM-i","SEALION 6 DM-i AWD"];
+models["SEALION 6 DM-i"].specs=[["배터리","18.3 kWh","26.6 kWh"],["엔진","1.5L / 4기통 / 1,497cc","동일"],["엔진 최고출력","131 ps @ 5,200rpm","동일"],["엔진 최대토크","220 Nm","동일"],["모터 / 구동","싱글 / FWD","듀얼 / AWD"],["모터 최고출력","150 kW","전 150 kW / 후 150 kW"],["모터 최대토크","300 Nm","전 300 Nm / 후 340 Nm"],["0→100km/h","-","5.0초"],["최고속도","180 km/h","180 km/h"],["복합 연비","15.2 km/L","12.7 km/L"],["도심 / 고속도로 연비","15.9 / 14.3 km/L","13.2 / 12.3 km/L"],["복합 전비","4.2 km/kWh","3.6 km/kWh"],["도심 / 고속도로 전비","5.0 / 3.6 km/kWh","4.0 / 3.3 km/kWh"],["EV 1회 충전 주행거리","70 km","93 km"],["CO₂","20 g/km","26 g/km"],["드라이브 모드","에코 / 일반 / 스포츠 / 스노우","에코 / 일반 / 스포츠 / 스노우 / 진흙 / 모래"],["전장 × 전폭 × 전고","4,775 × 1,890 × 1,670 mm","동일"],["축거","2,765 mm","동일"],["공차중량","1,960 kg","2,145 kg"],["타이어","235/50 R19","235/50 R19"]];
+models["SEALION 6 DM-i"].power=["DM-i 듀얼모드 시스템","BYD Blade Battery(LFP): FWD 18.3kWh / AWD 26.6kWh","1.5L 가솔린 엔진","FWD: 150kW·300Nm 싱글모터","AWD: 전 150kW·300Nm + 후 150kW·340Nm 듀얼모터","AWD: 0→100km/h 5.0초","AWD: 진흙(Mud)·모래(Sand) 터레인 모드 추가","18kW급 DC 충전","외부 V2L 최대 3.3kW"];
+models["SEALION 6 DM-i"].exterior=["19인치 블랙 알로이 휠","사계절 타이어","LED 헤드/리어/DRL","리어 시퀀셜 턴시그널","윈드실드·1열 차음유리","리어 와이퍼","크롬 DLO 몰딩","매트 루프랙 데코","AWD: 다이나믹 세레모니 라이팅 추가"];
+models["SEALION 6 DM-i"].interior=["12.3인치 Full LCD","15.6인치 고정식 터치스크린","ECM 룸미러","FWD: 블루 싱글 컬러 앰비언트 라이트","AWD: 멀티 컬러 앰비언트 라이트","파노라믹 선루프 + 전동 선쉐이드","AWD: 메탈 도어 실플레이트 추가","선글라스 홀더","오르간 타입 가속페달","2열 에어벤트·암레스트"];
+models["SEALION 6 DM-i"].seat=["인조가죽","1열 일체형 헤드레스트","FWD: 운전석 6방향 전동","AWD: 운전석 8방향 전동 + 메모리","동승석 4방향 전동","1열 열선·통풍","2열 열선·리클라이닝","2열 헤드레스트 높낮이","2열 6:4 폴딩","5인승"];
+models["SEALION 6 DM-i"].infotainment=["카카오내비","무선 Apple CarPlay / Android Auto","Hi, BYD","OTA","FWD: 8스피커","AWD: Infinity 사운드 시스템 10스피커(서브우퍼 포함)"];
+models["SEALION 6 DM-i"].safety=["7 에어백","AWD: 헤드업 디스플레이(HUD)","어댑티브 크루즈 컨트롤(ACC) / 인텔리전트 크루즈 컨트롤(ICC)","자동 긴급 제동(AEB) / 긴급 차선 유지 보조(ELKA)","차선 이탈 경고(LDW) / 차선 이탈 조향 보조(LDP)","전방 충돌 경고(FCW) / 후방 충돌 경고(RCW)","후방 교차 충돌 경고(RCTA) / 후방 교차 충돌 제동 보조(RCTB)","사각 지대 감지(BSD) / 하차 주의 경고(DOW)","하이빔 보조(IHBC)","경사로 저속 주행 보조(HDC) / 경사로 밀림 방지 보조(HHC)","개별 타이어 공기압 모니터링(TPMS)","유아용 시트 고정장치(ISOFIX)","주차 거리 경고"];
+models["SEALION 6 DM-i"].convenience=["전동 테일게이트","서라운드 뷰 모니터","50W 무선충전 + 쿨링","AWD: 후진 연동 아웃사이드 미러 자동 하향","레인센싱 와이퍼","듀얼존 풀오토 에어컨","NFC 디지털 키","열선 스티어링 휠","전좌석 원터치 윈도우","USB A/C","12V 파워 아웃렛","외부 V2L 최대 3.3kW"];
+models["SEALION 6 DM-i"].sales=["FWD는 3,750만원·복합연비 15.2km/L 중심의 효율형, AWD는 4,190만원·제로백 5.0초 중심의 성능형","AWD는 배터리가 18.3→26.6kWh로 커지고 EV 주행거리가 70→93km로 확대","AWD 추가사양은 HUD·Infinity 10스피커·운전석 8방향/메모리·멀티 컬러 앰비언트·후진 연동 미러가 핵심","두 트림 모두 1열 통풍·2열 열선/리클라이닝·50W 무선충전·V2L을 제공"];
+upgrades["SEALION 6 DM-i"].push({trim:"SEALION 6 DM-i AWD",items:["18.3kWh → 26.6kWh Blade Battery","싱글모터 FWD → 듀얼모터 AWD","전륜 150kW·300Nm + 후륜 150kW·340Nm","EV 주행거리 70km → 93km","0→100km/h 5.0초","진흙(Mud)·모래(Sand) 터레인 모드","헤드업 디스플레이(HUD)","Infinity 사운드 시스템 10스피커(서브우퍼 포함)","운전석 8방향 전동 조절 + 메모리","멀티 컬러 앰비언트 라이트","메탈 도어 실플레이트","다이나믹 세레모니 라이팅","후진 연동 아웃사이드 미러 자동 하향"]});
+competitors["SEALION 6 DM-i"].cars.splice(1,0,{name:"BYD SEALION 6 DM-i AWD",brand:"BYD",price:"4,190만원",size:"4,775 × 1,890 × 1,670",wheelbase:"2,765",battery:"26.6kWh LFP",power:"전 150kW + 후 150kW + 1.5L",torque:"전 300Nm / 후 340Nm",drive:"AWD",range:"EV 93km",eff:"12.7km/L + 3.6km/kWh",zero:"5.0초",point:"듀얼모터·HUD·Infinity 10스피커·V2L·터레인 모드"});
+competitors["SEALION 6 DM-i"].summary=["FWD는 3,750만원과 복합연비 15.2km/L, AWD는 4,190만원과 EV 93km·제로백 5.0초로 성격이 명확히 구분","AWD는 일반 HEV와 달리 외부충전·93km EV 주행·3.3kW V2L을 제공하면서 듀얼모터 사륜구동 성능까지 결합","경쟁차 비교 시 차량가격뿐 아니라 HUD·Infinity 오디오·메모리시트·1열 통풍·2열 열선/리클라이닝 등 포함 사양을 함께 확인"];
+document.querySelector('.sub').textContent='공식 홈페이지 기반 · 2026.10.11 업데이트';
+setModelPrice("SEALION 6 DM-i",["37,500,000원","41,900,000원"]);
+
+    
 
 const nav=document.getElementById('nav'),app=document.getElementById('app'),search=document.getElementById('search');let current=Object.keys(models)[0];
 nav.innerHTML='';
