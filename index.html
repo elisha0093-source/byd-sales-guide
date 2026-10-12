@@ -302,3 +302,5 @@ search.addEventListener('input',e=>filter(e.target.value));renderView(current,'s
 </script></body></html>
 
 <script>(()=>{let n=document.querySelector("#nav");if(!n||n.querySelector("[data-name=CORE_TECH]"))return;let b=document.createElement("button");b.textContent="핵심기술 · 안전";b.dataset.name="CORE_TECH";b.className="service-nav";b.style.background="#096fa0";b.onclick=()=>location.href="sealion6-adas-preview.html";let s=[...n.children].find(x=>x.dataset.name==="SERVICE");n.insertBefore(b,s||null)})();</script>
+
+    <script>(()=>{let p=new URLSearchParams(location.search).get("model");if(p==="SERVICE")renderService();else if(p&&models[p])renderView(p,"spec")})();</script>
